@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
-# Script: parse_passwd_info.sh
-passwd_file="/etc/passwd"
-
+# 101-tell_the_story_of_passwd
+file_h="/etc/passwd"
 username=""
-user_id=""
-group_id=""
-home_directory=""
+groupname=""
+homedir=""
 shell=""
+userid=""
 gecos=""
-extra_info=""
+info=""
 
 while IFS= read -r line
 do
-    # Extract specific fields from the line using ':' as the delimiter
     username="$(echo "$line" | cut -d":" -f1)"
-    user_id="$(echo "$line" | cut -d":" -f3)"
-    group_id="$(echo "$line" | cut -d":" -f4)"
-    home_directory="$(echo "$line" | cut -d":" -f6)"
+    groupname="$(echo "$line" | cut -d":" -f4)"
+    homedir="$(echo "$line" | cut -d":" -f6)"
     shell="$(echo "$line" | cut -d":" -f7)"
-    gecos="$(echo "$line" | cut -d":" -f5)"
-    extra_info="$(echo "$line" | cut -d":" -f2)"
+    userid="$(echo "$line" | cut -d":" -f3)"
+    gecos="$(echo "$line" | cut -d":" -f2)"
+    info="$(echo "$line" | cut -d":" -f5)"
 
-    echo "The user ${username} with ID ${user_id} is part of group ${group_id}, lives in ${home_directory}, and uses ${shell} as the default shell. Additional information: ${gecos}. More info about the user here: ${extra_info}"
-done < "$passwd_file"
+    echo "The user ${username} is part of the ${groupname} gang, lives in ${homedir} and rides ${shell}. ${userid}'s place is protected by the passcode ${gecos}, more info about the user here: ${info}"
+done < "$file_h"
