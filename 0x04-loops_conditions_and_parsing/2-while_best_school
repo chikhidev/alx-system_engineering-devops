@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-i = 1
-
-while [$i -le 10]; do
+#it prints same but this time using while loop
+i=1
+while [ "$i" -le 10 ]
+do
         echo "Best School"
         ((i++))
 done
