@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# 6-stop_me_if_you_can
+pkill -f 4-to_infinity_and_beyond

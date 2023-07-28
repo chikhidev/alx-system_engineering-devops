@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# 100-process_and_pid_file
+
+echo $$ > myscript.pid
+sudo cp myscript.pid /var/run
+while :
+do
+  echo "To infinity and beyond"
+  trap "echo Y U no love me?!" SIGINT
+  trap "echo I hate the kill command; sudo rm /var/run/holbertonscript.pid; exit" SIGTERM
+  trap "sudo rm /var/run/holbertonscript.pid; exit" SIGQUIT
+  sleep 2
+done
