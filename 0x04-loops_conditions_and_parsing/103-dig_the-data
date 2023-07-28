@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 103-dig_the-data
+TARGET="apache-access.log"
+awk -F' ' '{ print $1, $9}' $TARGET | sort | uniq -c| sort -nr
