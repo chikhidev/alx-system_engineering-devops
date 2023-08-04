@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# configures an Ubuntu server with the below requirements
-cp /etc/hosts ~/hosts.new
-echo -e "127.0.0.2\tlocalhost\n8.8.8.8\tfacebook.com" > ~/hosts.new
-cat ~/hosts.new > /etc/hosts
